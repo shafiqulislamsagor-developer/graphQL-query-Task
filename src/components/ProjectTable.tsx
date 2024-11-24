@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useGetProjectsQuery } from "@/redux/features/projectApiSlice";
 import Pagination from "./Pagination";
+import Loading from "./Loading";
 
 const ProjectTable = () => {
   const [search, setSearch] = useState("");
@@ -31,7 +32,7 @@ const ProjectTable = () => {
     setPage(page);
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (isError) return <p>Error loading projects.</p>;
 
   return (
