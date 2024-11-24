@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const projectApiSlice = createApi({
-    reducerPath: 'projectApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://michiley.com/api/endpoint/graphql' }),
-    endpoints: (builder) => ({
-        getProjects: builder.query({
-            query: ({ search, page, limit, order, sort }) => ({
-                url: '',
-                method: 'POST',
-                body: {
-                    query: `
+  reducerPath: 'projectApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://michiley.com/api/endpoint/graphql' }),
+  endpoints: (builder) => ({
+    getProjects: builder.query({
+      query: ({ search, page, limit, order, sort }) => ({
+        url: '',
+        method: 'POST',
+        body: {
+          query: `
             query Projects($search: String, $page: Int, $limit: Int, $order: SortOrder, $sort: String) {
               getProjects(search: $search, page: $page, limit: $limit, order: $order, sort: $sort) {
                 projects {
@@ -55,11 +55,11 @@ export const projectApiSlice = createApi({
               }
             }
           `,
-                    variables: { search, page, limit, order, sort },
-                },
-            }),
-        }),
+          variables: { search, page, limit, order, sort },
+        },
+      }),
     }),
+  }),
 });
 
 export const { useGetProjectsQuery } = projectApiSlice;

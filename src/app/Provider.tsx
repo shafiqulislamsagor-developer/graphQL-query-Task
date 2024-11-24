@@ -1,16 +1,7 @@
 "use client";
-
-import { ApolloProvider } from "@apollo/client";
-import { Provider } from "react-redux";
 import { store } from "@/redux/store";
+import { Provider } from "react-redux";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  // const client = makeClient();
-
-  return (
-    <Provider store={store}>
-      {/* <ApolloProvider client={client}></ApolloProvider> */}
-      {children}
-    </Provider>
-  );
+  return <Provider store={store}>{children}</Provider>;
 }
